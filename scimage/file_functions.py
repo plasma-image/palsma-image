@@ -1,8 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 31 13:06:36 2020
+
+@author: a.azizabadi
+"""
 
 import numpy as np
 import os
     
-# ----- file functions -------
+# ----- temporary: test file functions -------
 def create_folder(folder_name):
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
@@ -34,21 +41,20 @@ def get_folder_name(real_data,average,cs_condition,
 
     return folder_name
 
-# ---- functions for image files ----
-def load_simulation_image(filename):
-    data1=np.load(filename)
-    
-    values=data1['jz']
-    
-    # nx=data1['nx']
-    # ny=data1['ny']
-    nx = values.shape[0]
-    ny = values.shape[1]
-    
-    lx=data1['lx']
-    ly=data1['ly']
-    
-    x=np.linspace(-lx/2,lx/2,nx)
-    y=np.linspace(-ly/2,ly/2,ny)    
-    
-    return values, nx, ny, lx, ly, x, y
+
+# ---------------------- TEST IT ------------------------------------------
+## Save them 
+#np.savez("cs_detections", 
+#         indexes_of_local_jzmax = indexes_of_local_jzmax, 
+#         indexes_of_points_of_all_cs = indexes_of_points_of_all_cs)
+#
+##halfthickness1
+##halfthickness2
+##lengths_in_global_space
+##np.savez("cs_characterizations", 
+##         ...)
+#
+## Load them (Note: loads them as array not list)
+#data = np.load("cs_detections.npz")
+#cs_maximas = data['indexes_of_local_jzmax']
+#cs_points = data['indexes_of_points_of_all_cs']
